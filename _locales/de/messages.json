@@ -57,10 +57,10 @@
     },
     "hideCursorOptionTitle": {
         "message": "Hide Cursor",
-        "description": "Title of the only fullscreen option"
+        "description": "Title of the hide cursor option"
     },
     "hideCursorOptionDescription": {
         "message": "Hide cursor along with controls.",
-        "description": "Description of the only fullscreen option"
+        "description": "Description of the hide cursor option"
     }
 }
