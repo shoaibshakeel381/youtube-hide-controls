@@ -2,6 +2,7 @@ let hotkeyInput = document.querySelector("#hotkey input");
 let useHotkeyInput = document.querySelector("#useHotkey input");
 let onlyHotkey = document.querySelector("#onlyHotkey input");
 let invertTrigger = document.querySelector("#invertTrigger input");
+let hideCursor = document.querySelector("#hideCursor input");
 let onlyFullscreen = document.querySelector("#onlyFullscreen input");
 
 let triggerTop = document.querySelector("#top");
@@ -25,7 +26,7 @@ function keyToString(e) {
     return result;
 }
 
-chrome.storage.local.get(["triggerTop", "triggerLeft", "triggerRight", "triggerBottom", "useHotkey", "onlyHotkey", "hotkey", "invertTrigger", "onlyFullscreen"], function (res) {
+chrome.storage.local.get(["triggerTop", "triggerLeft", "triggerRight", "triggerBottom", "useHotkey", "onlyHotkey", "hotkey", "invertTrigger", "onlyFullscreen", "hideCursor"], function (res) {
     triggerTop.value = res.triggerTop || -1;
     triggerLeft.value = res.triggerLeft || 5;
     triggerRight.value = res.triggerRight || 5;
@@ -41,6 +42,7 @@ chrome.storage.local.get(["triggerTop", "triggerLeft", "triggerRight", "triggerB
 
     invertTrigger.checked = (res.invertTrigger == undefined) ? false : res.invertTrigger
     onlyFullscreen.checked = (res.onlyFullscreen == undefined) ? true : res.onlyFullscreen
+    hideCursor.checked = (res.hideCursor == undefined) ? true : res.hideCursor
 });
 
 function updateTrigger(e) {
@@ -106,6 +108,12 @@ onlyFullscreen.addEventListener("click", function(e) {
     });
 });
 
+hideCursor.addEventListener("click", function(e) {
+    chrome.storage.local.set({
+        "hideCursor": hideCursor.checked
+    });
+});
+
 document.querySelector("#triggerDistance .preferences-title").innerText = chrome.i18n.getMessage("triggerDistanceOptionTitle");
 document.querySelector("#triggerDistance .preferences-description").innerText = chrome.i18n.getMessage("triggerDistanceOptionDescription");
 document.querySelector("#useHotkey .preferences-title").innerText = chrome.i18n.getMessage("useHotkeyOptionTitle");
@@ -117,4 +125,6 @@ document.querySelector("#invertTrigger .preferences-title").innerText = chrome.i
 document.querySelector("#invertTrigger .preferences-description").innerText = chrome.i18n.getMessage("invertTriggerOptionDescription");
 document.querySelector("#onlyFullscreen .preferences-title").innerText = chrome.i18n.getMessage("onlyFullscreenOptionTitle");
 document.querySelector("#onlyFullscreen .preferences-description").innerText = chrome.i18n.getMessage("onlyFullscreenOptionDescription");
+document.querySelector("#hideCursor .preferences-title").innerText = chrome.i18n.getMessage("hideCursorOptionTitle");
+document.querySelector("#hideCursor .preferences-description").innerText = chrome.i18n.getMessage("hideCursorOptionDescription");
 hotkeyInput.placeholder = chrome.i18n.getMessage("hotkeyPlaceholder");

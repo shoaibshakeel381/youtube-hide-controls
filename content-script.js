@@ -8,7 +8,8 @@ let settings = {
     "useHotkey": false,
     "onlyHotkey": false,
     "invertTrigger": false,
-    "onlyFullscreen": true
+    "onlyFullscreen": true,
+    "hideCursor": true
 }
 let isHidden = false;
 
@@ -44,7 +45,8 @@ function hideControls() {
 
     window.postMessage({
         "source": "YOUTUBE_HIDE_CONTROL",
-        "action": "HIDE_PLAYER"
+        "action": "HIDE_PLAYER",
+        "hideCursor": settings.hideCursor
     });
 }
 

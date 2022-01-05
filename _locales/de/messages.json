@@ -54,5 +54,13 @@
     "onlyFullscreenOptionDescription": {
         "message": "Blende die Steuerelemente nur aus, wenn das YouTube Video sich im Vollbildmodus befindet.",
         "description": "Description of the only fullscreen option"
+    },
+    "hideCursorOptionTitle": {
+        "message": "Hide Cursor",
+        "description": "Title of the only fullscreen option"
+    },
+    "hideCursorOptionDescription": {
+        "message": "Hide cursor along with controls.",
+        "description": "Description of the only fullscreen option"
     }
 }

@@ -28,25 +28,42 @@ function hideControls() {
     const player = getPlayerElement();
 
     player.hideControls();
-    player.style.cursor = "none";
 }
 
 function showControls() {
     const player = getPlayerElement();
 
     player.showControls();
+}
+
+function showCursor() {
+    const player = getPlayerElement();
+
     player.style.cursor = "";
 }
 
+function hideCursor() {
+    const player = getPlayerElement();
+
+    player.style.cursor = "none";
+}
+
 window.addEventListener("message", function(event) {
-    if (event.source != window || !event.data.source && event.data.source != "YOUTUBE_HIDE_CONTROL") {
+    if (event.source != window
+        || !event.data.source && event.data.source != "YOUTUBE_HIDE_CONTROL"
+        || !event.data.action) {
         return;
     }
 
-    if (event.data.action && event.data.action == "SHOW_PLAYER") {
+    if (event.data.action == "SHOW_PLAYER") {
         showControls();
+        showCursor();
     }
-    else if (event.data.action && event.data.action == "HIDE_PLAYER") {
+    else if (event.data.action == "HIDE_PLAYER") {
         hideControls();
+
+        if (!event.data.hideCursor){
+            hideCursor();
+        }
     }
 }, false);

@@ -54,5 +54,13 @@
     "onlyFullscreenOptionDescription": {
         "message": "Only hide the controls when the YouTube video is in fullscreen mode.",
         "description": "Description of the only fullscreen option"
+    },
+    "hideCursorOptionTitle": {
+        "message": "Hide Cursor",
+        "description": "Title of the only fullscreen option"
+    },
+    "hideCursorOptionDescription": {
+        "message": "Hide cursor along with controls.",
+        "description": "Description of the only fullscreen option"
     }
 }
