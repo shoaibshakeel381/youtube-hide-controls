@@ -27,25 +27,25 @@ function getPlayerElement() {
 function hideControls() {
     const player = getPlayerElement();
 
-    player.hideControls();
+    player?.hideControls();
 }
 
 function showControls() {
     const player = getPlayerElement();
 
-    player.showControls();
+    player?.showControls();
 }
 
 function showCursor() {
     const player = getPlayerElement();
 
-    player.style.cursor = "";
+    player?.style.cursor = "";
 }
 
 function hideCursor() {
     const player = getPlayerElement();
 
-    player.style.cursor = "none";
+    player?.style.cursor = "none";
 }
 
 window.addEventListener("message", function(event) {
